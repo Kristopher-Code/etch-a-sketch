@@ -8,10 +8,17 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(16, 25px [col-start]);
+  height: 500px;
+  width: 500px;
+  
+ 
+  /* grid-template-columns: repeat(16, 16px); */
 }
 

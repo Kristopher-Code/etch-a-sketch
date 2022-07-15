@@ -1,22 +1,25 @@
 // Grid container.
-const generateGrid = document.querySelector('.container');
+const container = document.querySelector('.container');
+let gridSize = 16;
 
 // Add 16 divs.
 
 createGrid = () => {
-    for (let i = 1; i < 257; i++) {
-        const gridDivs = document.createElement('div');
-        gridDivs.style.cssText = "border: 1px solid black; height: 25px; width: 25px";
-        generateGrid.appendChild(gridDivs);
-        generateGrid.addEventListener("mouseover", changeColour);
+    for (let i = 0; i < gridSize * gridSize; i++) {
+        const grid = document.createElement('div');
+        grid.style.cssText = "border: 1px solid black;";        
+        container.appendChild(grid);
+        container.addEventListener("mouseover", changeColour);
+        container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+        container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
     }
 };
 
 // Change colour on mouse hover.
 
- changeColour = (e) => {
+changeColour = (e) => {
     e.target.style.backgroundColor = "pink";
 }
 
-createGrid();
+createGrid(gridSize);
 
