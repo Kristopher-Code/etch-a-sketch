@@ -2,56 +2,69 @@
 // Grid container.
 const container = document.getElementById('container');
 const clearBtn = document.getElementById('clearBtn');
-const sizeChangeBtn = document.getElementById('sizeChangeBtn');
 const rainbowBtn = document.getElementById('rainbowBtn');
 const eraserBtn = document.getElementById('eraserBtn');
+const sizeSlider = document.getElementById('sizeSlider')
+const sizeX = document.getElementById('sizeX')
+
 clearBtn.onclick = () => clearGrid();
-sizeChangeBtn.onclick = () => changeGridSize();
 rainbowBtn.onclick = () => setCurrentColour('rainbow')
 eraserBtn.onclick = () => setCurrentColour('eraser')
+sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
+sizeSlider.onchange = (e) => changeSize(e.target.value)
 
 
-let gridSize = 16;
+let currentSize = 16;
 let currentColour = 'white';
 let mouseDown = false;
 
 document.body.onmousedown = () => mouseDown = true;
 document.body.onmouseup = () => mouseDown = false;
 
+changeSize = (value) => {
+    updateSizeValue(value)
+    setCurrentSize(value)
+    changeGridSize()
+}
 
+setCurrentSize = (newSize) => {
+    currentSize = newSize;
+}
 
-function switchColour(e) {
+updateSizeValue = (value) => {
+    sizeX.innerHTML = `${value} x ${value}`
+}
+
+switchColour = (e) => {
     if (e.type === 'mouseover' && !mouseDown) return
     if (currentColour === 'rainbow') {
         const randomR = Math.floor(Math.random() * 256)
         const randomG = Math.floor(Math.random() * 256)
         const randomB = Math.floor(Math.random() * 256)
-        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
-    } else if (currentColour === 'white') {
-        e.target.style.backgroundColor = currentColour;
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})` 
     } else if (currentColour === 'eraser') {
         e.target.style.opacity = "0";
+    } else if (currentColour === 'white') {
+        e.target.style.backgroundColor = currentColour; 
     }
 }
 
-function setCurrentColour(newColour) {
+setCurrentColour = (newColour) => {
     currentColour = newColour
 }
 
 
 changeGridSize = () => {
-    let newSize = (prompt("Enter a number"));
-    gridSize = newSize;
     container.innerHTML = "";
-    createGrid(newSize);
+    createGrid(currentSize);
 }
 
 clearGrid = () => {
     container.innerHTML = "";
-    createGrid(gridSize);
+    createGrid(currentSize);
 }
 
-createGrid = () => {
+createGrid = (gridSize) => {
     container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
 
@@ -62,9 +75,9 @@ createGrid = () => {
         grid.addEventListener("mousedown", switchColour);
         container.appendChild(grid);
     }
+    console.log(gridSize);
 };
 
-
-createGrid(gridSize);
+createGrid(currentSize);
 
 

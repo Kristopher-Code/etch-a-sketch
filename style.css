@@ -25,54 +25,47 @@ body {
   box-shadow: 5px 10px #0000003c;
 }
 
+.size-inputs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 25px;
-  margin: 25px;
-  width: 200px;
+  gap: 15px;
+  padding-top: 25px;
 
 }
 
-.button {
+.circle-button {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
 
-  border:1px solid rgb(150, 113, 45);
-  background-color: rgb(137, 170, 224);
-  border-radius: 10px;
-  color: #ffffff;
-  font-size: 16px;
-  padding: 12px;
-  width: 100px;
+.circle-button:hover {
+
   cursor: pointer;
-
+  transition: 0.3s;
+  border: 2px solid rgb(0, 200, 255);
 }
 
-.button:hover {
-  background-color: #fdbeff;
+.color-text {
+  font-size: 20px;
 }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.4s;
+#clearBtn {
+  background-color: #e8dfd6;
 }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+#eraserBtn {
+  background-color: #b9b2ac;
 }
 
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
+#rainbowBtn {
+  background-image: linear-gradient(#ff0000, #fffc00, #00ff51, #00eaff, #ff00c8);
 }
