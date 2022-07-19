@@ -1,23 +1,43 @@
-// Grid container.
-const container = document.getElementById("container");
-const clear = document.getElementById("clearBtn")
-const size = document.getElementById("sizeChangeBtn")
-let gridSize = 16;
 
+// Grid container.
+const container = document.getElementById('container');
+const clearBtn = document.getElementById('clearBtn');
+const sizeChangeBtn = document.getElementById('sizeChangeBtn');
+const rainbowBtn = document.getElementById('rainbowBtn');
+const eraserBtn = document.getElementById('eraserBtn');
+clearBtn.onclick = () => clearGrid();
+sizeChangeBtn.onclick = () => changeGridSize();
+rainbowBtn.onclick = () => setCurrentColour('rainbow')
+eraserBtn.onclick = () => setCurrentColour('eraser')
+
+
+let gridSize = 16;
+let currentColour = 'white';
 let mouseDown = false;
 
 document.body.onmousedown = () => mouseDown = true;
 document.body.onmouseup = () => mouseDown = false;
 
 
-clearBtn.onclick = () => clearGrid();
-sizeChangeBtn.onclick = () => changeGridSize();
-    // Change colour on mouse hover.
 
-    changeColour = (e) => {
-        if (e.type === "mouseover" && !mouseDown) return;
-        e.target.style.backgroundColor = "white";
+function switchColour(e) {
+    if (e.type === 'mouseover' && !mouseDown) return
+    if (currentColour === 'rainbow') {
+        const randomR = Math.floor(Math.random() * 256)
+        const randomG = Math.floor(Math.random() * 256)
+        const randomB = Math.floor(Math.random() * 256)
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    } else if (currentColour === 'white') {
+        e.target.style.backgroundColor = currentColour;
+    } else if (currentColour === 'eraser') {
+        e.target.style.opacity = "0";
     }
+}
+
+function setCurrentColour(newColour) {
+    currentColour = newColour
+}
+
 
 changeGridSize = () => {
     let newSize = (prompt("Enter a number"));
@@ -38,12 +58,11 @@ createGrid = () => {
     for (let i = 0; i < gridSize * gridSize; i++) {
         const grid = document.createElement("div");
         grid.classList.add("grid-class");
-        grid.addEventListener("mouseover", changeColour);
-        grid.addEventListener("mousedown", changeColour);
+        grid.addEventListener("mouseover", switchColour);
+        grid.addEventListener("mousedown", switchColour);
         container.appendChild(grid);
     }
 };
-
 
 
 createGrid(gridSize);

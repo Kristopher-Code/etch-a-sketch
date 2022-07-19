@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  font-weight: normal;
 }
 
 body {
@@ -10,13 +12,67 @@ body {
   min-height: 100vh;
   height: 100vh;
   width: 100vw;
-  background: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to left, rgb(255, 192, 203), rgb(251, 176, 37));
 }
 
 .container {
   display: grid;
   height: 500px;
   width: 500px;
-  border: 1px solid rgb(255, 255, 255);
+  border: 2px dotted rgb(87, 67, 30);
+  box-shadow: 5px 10px #0000003c;
+}
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  margin: 25px;
+  width: 200px;
+
+}
+
+.button {
+
+  border:1px solid rgb(150, 113, 45);
+  background-color: rgb(137, 170, 224);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 12px;
+  width: 100px;
+  cursor: pointer;
+
+}
+
+.button:hover {
+  background-color: #fdbeff;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
