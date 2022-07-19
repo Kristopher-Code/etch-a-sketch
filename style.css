@@ -1,81 +1,128 @@
-* {
+*,
+*::before,
+*::after {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   box-sizing: border-box;
-  font-family: Gotham Rounded, sans-serif;
-  font-weight: normal;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to left, rgb(255, 192, 203), rgb(251, 176, 37));
+  background: linear-gradient(to right, rgb(255, 192, 203), rgb(250, 187, 70));
 }
 
 .container {
   display: grid;
-  height: 500px;
   width: 500px;
-  border: 2px dotted rgb(87, 67, 30);
+  height: 500px;
+  border: 2px dotted rgba(87, 67, 30, 0.411);  
   box-shadow: 5px 10px #0000003c;
+
+
+}
+
+.header {
+  padding: 50px;
+}
+
+.title {
+  text-align: center;
+  font-size: 70px;
+  padding-bottom: 20px;
 }
 
 .size-inputs {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
+  flex-direction: row;  
   gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 200px;
+  padding-top: 20px;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 15px;
-  padding-top: 25px;
+  gap: 30px;
+  width: 100px;
+}
 
+.collection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .circle-button {
   border-radius: 50%;
-  height: 25px;
-  width: 25px;
+  height: 45px;
+  width: 45px;
 }
 
 .circle-button:hover {
   cursor: pointer;
-  transition: 0.3s;
-  border: 2px solid rgb(0, 200, 255);
+  transition: 0.2s;
+  transform: scale(1.12);
 }
 
 .color-text {
   font-size: 20px;
+  padding: 12px;
+  border:  1px solid #0000003c;
+  border-radius: 25px;
+  
+}
+
+.text {
+display: flex;
+flex-direction: column;
+  gap: 27px;
+  margin-right: 20px;
+}
+
+
+
+.buttontextcollection {
+  display: flex;
 }
 
 #colorPicker {
-  border-radius: 50%;   
+  border-radius: 50%;
 }
 
 input[type="color"] {
-	-webkit-appearance: none;
-	border: none;
-	width: 25px;
-	height: 25px;
+  -webkit-appearance: none;
+  border: none;
+  width:45px;
+  height: 45px;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
+  padding: 0;
 }
 
 input[type="color"]::-webkit-color-swatch {
-	border: none;
-  border-radius: 50px;
+  border: none;
+  border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+input[type='color']:hover {
+  transform: scale(1.12);
+  transition: 0.2s;
+
 }
 
 #clearBtn {
