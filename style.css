@@ -16,34 +16,47 @@ body {
   background: linear-gradient(to right, rgb(255, 192, 203), rgb(250, 187, 70));
 }
 
-.container {
-  display: grid;
-  width: 500px;
-  height: 500px;
-  border: 2px dotted rgba(87, 67, 30, 0.411);  
-  box-shadow: 5px 10px #0000003c;
-
-
-}
-
 .header {
   padding: 50px;
 }
 
 .title {
   text-align: center;
-  font-size: 70px;
+  font-size: 65px;
   padding-bottom: 20px;
 }
 
-.size-inputs {
+.collection {
   display: flex;
-  flex-direction: row;  
+  align-items: center;
+  justify-content: flex-start;
+  gap: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gridcontainer {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  border: 2px dotted rgba(87, 67, 30, 0.411);
+  box-shadow: 5px 10px #0000003c;
+}
+
+.container {
+  display: flex;
+}
+
+
+.size-slider-container {
+  display: flex;
+  flex-direction: row;
   gap: 10px;
   justify-content: center;
   align-items: center;
   margin-left: 200px;
   padding-top: 20px;
+  width: 250px;
 }
 
 .buttons {
@@ -54,15 +67,6 @@ body {
   justify-content: center;
   gap: 30px;
   width: 100px;
-}
-
-.collection {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 100px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .circle-button {
@@ -80,22 +84,15 @@ body {
 .color-text {
   font-size: 20px;
   padding: 12px;
-  border:  1px solid #0000003c;
+  border: 1px solid #0000003c;
   border-radius: 25px;
-  
 }
 
-.text {
-display: flex;
-flex-direction: column;
+.button-text {
+  display: flex;
+  flex-direction: column;
   gap: 27px;
   margin-right: 20px;
-}
-
-
-
-.buttontextcollection {
-  display: flex;
 }
 
 #colorPicker {
@@ -105,7 +102,7 @@ flex-direction: column;
 input[type="color"] {
   -webkit-appearance: none;
   border: none;
-  width:45px;
+  width: 45px;
   height: 45px;
 }
 
