@@ -7,7 +7,7 @@ const sizeX = document.getElementById('sizeX');
 const colourPicker = document.getElementById('colorPicker');
 
 let currentSize = 16;
-let currentColour = 'white';
+let currentColour = '#000000f8';
 
 clearBtn.onclick = () => clearGrid();
 rainbowBtn.onclick = () => setCurrentColour('rainbow');
@@ -69,7 +69,7 @@ updateSizeValue = (value) => {
 
 switchColour = (e) => {
     if (e.type === 'mouseover' && !mouseDown) return
-    if (currentColour === 'white') {
+    if (currentColour === '#000000f8') {
         e.target.style.backgroundColor = currentColour;
     } else if (currentColour === 'rainbow') {
         const randomR = Math.floor(Math.random() * 256)
